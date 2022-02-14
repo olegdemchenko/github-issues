@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import Header from './Header';
 import AppContainer from './AppContainer';
-
+import SignIn from './SignIn';
 
 function App() {
   const [isSignedIn, setSignedIn] = useState(false);
@@ -12,6 +12,7 @@ function App() {
   return (
     <AppContainer>
       <Header isSignedIn signOut={signOut}/>
+      <SignIn signIn={signIn} />
     </AppContainer>
   );
 }
