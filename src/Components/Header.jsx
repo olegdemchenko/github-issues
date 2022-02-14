@@ -2,11 +2,12 @@ import React from 'react';
 import { Navbar, Container, Button } from 'react-bootstrap';
 
 const Header = () => {
+  
   return (
-    <Navbar className="shadow-sm" variant="light" bg="white" expand="lg">
+    <Navbar className="shadow" variant="light" bg="white">
       <Container>
         <Navbar.Brand >Github Issues</Navbar.Brand>
-        <Button variant="primary">Sign out</Button> 
+        <Button variant="outline-dark">Sign out</Button> 
       </Container>
     </Navbar>
   );
