@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Header from './Header';
 import AppContainer from './AppContainer';
 import SignIn from './SignIn';
+import Issues from './Issues';
 
 function App() {
   const [isSignedIn, setSignedIn] = useState(false);
@@ -11,8 +12,8 @@ function App() {
 
   return (
     <AppContainer>
-      <Header isSignedIn signOut={signOut}/>
-      <SignIn signIn={signIn} />
+      <Header isSignedIn={isSignedIn} signOut={signOut}/>
+      {isSignedIn ? <Issues/> : <SignIn signIn={signIn} />}
     </AppContainer>
   );
 }

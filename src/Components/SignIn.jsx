@@ -41,6 +41,7 @@ const SignIn = ({ signIn }) => {
       try {
         const res = await axios.get(`https://api.github.com/repos/${username}/${repository}/issues`);
         setFetching(false);
+        signIn();
         console.log(res.data);
       } catch (e) {
         setFetching(false);

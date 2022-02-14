@@ -1,13 +1,13 @@
 import React from 'react';
 import { Navbar, Container, Button } from 'react-bootstrap';
 
-const Header = () => {
-  
+const Header = ({ isSignedIn, signOut }) => {
+  console.log()
   return (
-    <Navbar className="shadow" variant="light" bg="white">
+    <Navbar className="shadow" variant="light" bg="white" expand="lg">
       <Container>
         <Navbar.Brand >Github Issues</Navbar.Brand>
-        <Button variant="outline-dark">Sign out</Button> 
+        {isSignedIn && <Button variant="outline-dark" onClick={signOut}>Sign out</Button>}
       </Container>
     </Navbar>
   );
