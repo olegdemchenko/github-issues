@@ -1,11 +1,15 @@
 import Header from './Header';
 import AppContainer from './AppContainer';
+import AuthProvider from './AuthProvider';
 
 function App() {
+
   return (
-    <AppContainer>
-      <Header />
-    </AppContainer>
+    <AuthProvider>
+      <AppContainer>
+        <Header />
+      </AppContainer>
+    </AuthProvider>
   );
 }
 
