@@ -1,15 +1,18 @@
+import { useState } from 'react';
+
 import Header from './Header';
 import AppContainer from './AppContainer';
-import AuthProvider from './AuthProvider';
+
 
 function App() {
+  const [isSignedIn, setSignedIn] = useState(false);
+  const signIn = () => setSignedIn(true);
+  const signOut = () => setSignedIn(false);
 
   return (
-    <AuthProvider>
-      <AppContainer>
-        <Header />
-      </AppContainer>
-    </AuthProvider>
+    <AppContainer>
+      <Header isSignedIn signOut={signOut}/>
+    </AppContainer>
   );
 }
 
