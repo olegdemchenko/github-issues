@@ -16,7 +16,7 @@ const filterIssuesByCriteria = (criteria, issues) => {
       if (!criteria.assigneeFilter) {
         return true;
       }
-      return issue.assignee?.startsWith(criteria.assigneeFilter);
+      return issue.assignee?.login?.includes(criteria.assigneeFilter);
     });
 };
 
