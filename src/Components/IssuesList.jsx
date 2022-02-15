@@ -9,7 +9,7 @@ const IssuesList = ({ issues, showDetails }) => {
           <h5 className="fw-bolder px-1 py-1">{issue.title}</h5>
           <ListGroup className="rounded" variant="flush">
             <ListGroup.Item>{issue.labels.join('\n')}</ListGroup.Item>
-            <ListGroup.Item>{issue.assignee ?? "Not assigned"}</ListGroup.Item>
+            <ListGroup.Item>{issue.assignee?.login ?? "Not assigned"}</ListGroup.Item>
             <ListGroup.Item>{issue.comments} comments</ListGroup.Item>
           </ListGroup>
         </Card>
