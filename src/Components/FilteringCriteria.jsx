@@ -1,11 +1,6 @@
-import {
-  Col,
-  Badge,
-  Form,
-} from 'react-bootstrap';
+import { Col, Badge, Form } from "react-bootstrap";
 
 const FilteringCriteria = ({ criteria, changeCriteria }) => {
-
   const handleChange = (fieldType) => (e) => {
     changeCriteria(fieldType, e.target.value);
   };
@@ -34,8 +29,8 @@ const FilteringCriteria = ({ criteria, changeCriteria }) => {
           id="labelFilter"
           name="labelFilter"
           value={criteria.labelFilter}
-          onChange={handleChange('labelFilter')}
-          placeholder="label" 
+          onChange={handleChange("labelFilter")}
+          placeholder="label"
         />
       </Form.Group>
       <Form.Group className="col-12 col-md-6 mb-5">
@@ -49,7 +44,7 @@ const FilteringCriteria = ({ criteria, changeCriteria }) => {
           name="assigneeFilter"
           placeholder="assignee"
           value={criteria.assigneeFilter}
-          onChange={handleChange('assigneeFilter')}
+          onChange={handleChange("assigneeFilter")}
         />
       </Form.Group>
       <Form.Group className="col-12 col-md-6 mb-5">
@@ -62,7 +57,7 @@ const FilteringCriteria = ({ criteria, changeCriteria }) => {
           id="sortOrder"
           name="sortOrder"
           value={criteria.sortOrder}
-          onChange={handleChange('sortOrder')}
+          onChange={handleChange("sortOrder")}
         >
           <option>Select sorting order</option>
           <option value="asc">Newest</option>
