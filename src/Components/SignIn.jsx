@@ -13,7 +13,7 @@ const errors = {
   invalidCredentials: "Username or repository is incorrect"
 };
 
-const SignIn = ({ signIn }) => {
+const SignIn = ({ signIn, setIssues }) => {
   const [isFetching, setFetching] = useState(false);
   const usernameRef = useRef();
   useEffect(() => {
@@ -39,10 +39,10 @@ const SignIn = ({ signIn }) => {
     onSubmit: async ({ username, repository }, { setErrors }) => {
       setFetching(true);
       try {
-        const res = await axios.get(`https://api.github.com/repos/${username}/${repository}/issues`);
+        const { data } = await axios.get(`https://api.github.com/repos/${username}/${repository}/issues`);
         setFetching(false);
         signIn();
-        console.log(res.data);
+        setIssues(data);
       } catch (e) {
         setFetching(false);
         switch (true) {

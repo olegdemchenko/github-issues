@@ -10,10 +10,12 @@ function App() {
   const signIn = () => setSignedIn(true);
   const signOut = () => setSignedIn(false);
 
+  const [issues, setIssues] = useState([]);
+
   return (
     <AppContainer>
       <Header isSignedIn={isSignedIn} signOut={signOut}/>
-      {isSignedIn ? <Issues/> : <SignIn signIn={signIn} />}
+      {isSignedIn ? <Issues issues={issues}/> : <SignIn signIn={signIn} setIssues={setIssues} />}
     </AppContainer>
   );
 }

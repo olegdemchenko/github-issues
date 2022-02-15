@@ -6,8 +6,9 @@ import {
 } from 'react-bootstrap';
 
 import FilteringCriteria from './FilteringCriteria';
+import IssuesList from './IssuesList';
 
-const Issues = () => {
+const Issues = ({ issues }) => {
   const initCriteria = {
     labelFilter: '',
     assigneeFilter: '',
@@ -24,6 +25,7 @@ const Issues = () => {
        <Row className="justify-content-center align-content-center">
          <Col className="col-12 shadow-lg rounded px-5" lg="8">
            <FilteringCriteria criteria={currentCriteria} changeCriteria={changeCriteria}/>
+           <IssuesList issues={issues}/>
          </Col>
        </Row>
     </Container>
