@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
 import { useFormik } from 'formik';
-import axios from 'axios';
 import * as Yup from 'yup';
 import githubUsernameRegex from 'github-username-regex';
+import { Octokit } from '@octokit/core';
 
 import SignInForm from './SignInForm';
 
@@ -39,7 +39,12 @@ const SignIn = ({ signIn, setIssues }) => {
     onSubmit: async ({ username, repository }, { setErrors }) => {
       setFetching(true);
       try {
-        const { data } = await axios.get(`https://api.github.com/repos/${username}/${repository}/issues`);
+        const octokit = new Octokit();
+        //TODO Change count of issues downloading in one request after a pagination is implemented
+        const { data } = await octokit.request('GET /repos/{owner}/{repo}/issues?per_page=100', {
+          owner: username,
+          repo: repository
+        });
         setFetching(false);
         signIn();
         setIssues(data);
