@@ -25,36 +25,42 @@ const FilteringCriteria = ({ criteria, changeCriteria }) => {
         <h4>frontend-project-lvl3</h4>
       </Col>
       <Form.Group className="col-12 col-md-6 mb-5">
-        <Form.Label>
+        <Form.Label htmlFor="labelFilter">
           <h4>
             <Badge bg="dark">Filter by label</Badge>
           </h4>
         </Form.Label>
         <Form.Control
+          id="labelFilter"
+          name="labelFilter"
           value={criteria.labelFilter}
           onChange={handleChange('labelFilter')}
           placeholder="label" 
         />
       </Form.Group>
       <Form.Group className="col-12 col-md-6 mb-5">
-        <Form.Label>
+        <Form.Label htmlFor="assigneeFilter">
           <h4>
             <Badge bg="dark">Filter by assignee</Badge>
           </h4>
         </Form.Label>
         <Form.Control
+          id="assigneeFilter"
+          name="assigneeFilter"
           placeholder="assignee"
           value={criteria.assigneeFilter}
           onChange={handleChange('assigneeFilter')}
         />
       </Form.Group>
       <Form.Group className="col-12 col-md-6">
-        <Form.Label>
+        <Form.Label htmlFor="sortOrder">
           <h4>
             <Badge bg="dark">Sort by date</Badge>
           </h4>
         </Form.Label>
         <Form.Select
+          id="sortOrder"
+          name="sortOrder"
           value={criteria.sortOrder}
           onChange={handleChange('sortOrder')}
         >
