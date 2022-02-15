@@ -13,7 +13,19 @@ const retrieveLabelsDescriptions = (issues) => {
     const labelsDescriptions = issue.labels.map(({ description }) => description);
     return { ...issue, labels: labelsDescriptions };
   });
-}
+};
+
+const filterIssuesByCriteria = (criteria, issues) => {
+  return issues.filter((issue) => {
+    return issue.labels.some((label) => label.includes(criteria.labelFilter));
+  })
+   .filter((issue) => {
+     if (!criteria.assigneeFilter) {
+       return true;
+     }
+     return issue.assignee?.startsWith(criteria.assigneeFilter);
+   });
+};
 
 const Issues = ({ issues }) => {
   const initCriteria = {
@@ -28,13 +40,14 @@ const Issues = ({ issues }) => {
   };
 
   const issuesWithLabels = retrieveLabelsDescriptions(issues);
+  const filteredIssues = filterIssuesByCriteria(currentCriteria, issuesWithLabels);
 
   return (
     <Container className="h-100" fluid>
        <Row className="justify-content-center align-content-center">
          <Col className="col-12 shadow-lg rounded px-5" lg="8">
            <FilteringCriteria criteria={currentCriteria} changeCriteria={changeCriteria}/>
-           <IssuesList issues={issuesWithLabels}/>
+           <IssuesList issues={filteredIssues}/>
          </Col>
        </Row>
     </Container>
