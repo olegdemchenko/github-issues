@@ -6,7 +6,7 @@ const renderIssue = ({ title, labels, assignee, comments, id }) => {
       <Card className="mb-4 btn btn-outline-dark" border="light">
         <h5 className="fw-bolder px-1 py-1">{title}</h5>
         <ListGroup className="rounded" variant="flush">
-          <ListGroup.Item>{labels[0].description}</ListGroup.Item>
+          <ListGroup.Item>{labels.join('\n')}</ListGroup.Item>
           <ListGroup.Item>{assignee ?? "Not assigned"}</ListGroup.Item>
           <ListGroup.Item>{comments} comments</ListGroup.Item>
         </ListGroup>

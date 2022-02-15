@@ -8,6 +8,13 @@ import {
 import FilteringCriteria from './FilteringCriteria';
 import IssuesList from './IssuesList';
 
+const retrieveLabelsDescriptions = (issues) => {
+  return issues.map((issue) => {
+    const labelsDescriptions = issue.labels.map(({ description }) => description);
+    return { ...issue, labels: labelsDescriptions };
+  });
+}
+
 const Issues = ({ issues }) => {
   const initCriteria = {
     labelFilter: '',
@@ -20,12 +27,14 @@ const Issues = ({ issues }) => {
     setCriteria((prevCriteria) => ({ ...prevCriteria, [type]: value }));
   };
 
+  const issuesWithLabels = retrieveLabelsDescriptions(issues);
+
   return (
     <Container className="h-100" fluid>
        <Row className="justify-content-center align-content-center">
          <Col className="col-12 shadow-lg rounded px-5" lg="8">
            <FilteringCriteria criteria={currentCriteria} changeCriteria={changeCriteria}/>
-           <IssuesList issues={issues}/>
+           <IssuesList issues={issuesWithLabels}/>
          </Col>
        </Row>
     </Container>
