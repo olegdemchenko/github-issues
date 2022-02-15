@@ -4,7 +4,12 @@ import {
   Form,
 } from 'react-bootstrap';
 
-const FilteringCriteria = () => {
+const FilteringCriteria = ({ criteria, changeCriteria }) => {
+
+  const handleChange = (fieldType) => (e) => {
+    changeCriteria(fieldType, e.target.value);
+  };
+
   return (
     <Form className="row mx-3 my-5">
       <Col className="col-12 mb-4" md="6">
@@ -25,7 +30,11 @@ const FilteringCriteria = () => {
             <Badge bg="dark">Filter by label</Badge>
           </h4>
         </Form.Label>
-        <Form.Control placeholder="label" />
+        <Form.Control
+          value={criteria.labelFilter}
+          onChange={handleChange('labelFilter')}
+          placeholder="label" 
+        />
       </Form.Group>
       <Form.Group className="col-12 col-md-6 mb-5">
         <Form.Label>
@@ -33,7 +42,11 @@ const FilteringCriteria = () => {
             <Badge bg="dark">Filter by assignee</Badge>
           </h4>
         </Form.Label>
-        <Form.Control placeholder="assignee" />
+        <Form.Control
+          placeholder="assignee"
+          value={criteria.assigneeFilter}
+          onChange={handleChange('assigneeFilter')}
+        />
       </Form.Group>
       <Form.Group className="col-12 col-md-6">
         <Form.Label>
@@ -41,7 +54,10 @@ const FilteringCriteria = () => {
             <Badge bg="dark">Sort by date</Badge>
           </h4>
         </Form.Label>
-        <Form.Select>
+        <Form.Select
+          value={criteria.sortOrder}
+          onChange={handleChange('sortOrder')}
+        >
           <option>Select sorting order</option>
           <option value="asc">Newest</option>
           <option value="desc">Oldest</option>
