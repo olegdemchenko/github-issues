@@ -22,7 +22,7 @@ const Issues = () => {
   return (
     <Container className="h-100" fluid>
        <Row className="justify-content-center align-content-center">
-         <Col className="col-12 shadow-lg rounded" lg="8">
+         <Col className="col-12 shadow-lg rounded px-5" lg="8">
            <FilteringCriteria criteria={currentCriteria} changeCriteria={changeCriteria}/>
          </Col>
        </Row>

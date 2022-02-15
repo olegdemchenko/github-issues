@@ -11,7 +11,7 @@ const FilteringCriteria = ({ criteria, changeCriteria }) => {
   };
 
   return (
-    <Form className="row mx-3 my-5">
+    <Form className="row my-5">
       <Col className="col-12 mb-4" md="6">
         <h4>
           <Badge bg="dark">Username</Badge>
