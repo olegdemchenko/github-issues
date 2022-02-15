@@ -52,7 +52,7 @@ const FilteringCriteria = ({ criteria, changeCriteria }) => {
           onChange={handleChange('assigneeFilter')}
         />
       </Form.Group>
-      <Form.Group className="col-12 col-md-6">
+      <Form.Group className="col-12 col-md-6 mb-5">
         <Form.Label htmlFor="sortOrder">
           <h4>
             <Badge bg="dark">Sort by date</Badge>
