@@ -51,14 +51,14 @@ const SignIn = ({ signIn, setIssues }) => {
       } catch (e) {
         setFetching(false);
         switch (true) {
-          case (e.isAxiosError && e.response.status === 403): {
+          case (e.response.status === 403): {
             setErrors({
               username: errors.forbidden,
               repository: errors.forbidden
             });
             return;
           }
-          case (e.isAxiosError && e.response.status === 404): {
+          case (e.response.status === 404): {
             setErrors({
               username: errors.invalidCredentials,
               repository: errors.invalidCredentials
