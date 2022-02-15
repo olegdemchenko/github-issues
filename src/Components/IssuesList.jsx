@@ -1,7 +1,7 @@
 import { Row, Col, Card, ListGroup } from "react-bootstrap";
 
 const IssuesList = ({ issues, showDetails }) => {
-  console.log(showDetails);
+  //TODO Implement pagination 
   const renderIssue = (issue) => {
     return (
       <Col key={issue.id} onClick={() => showDetails(issue)}>
