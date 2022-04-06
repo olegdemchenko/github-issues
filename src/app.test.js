@@ -1,7 +1,7 @@
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import '@testing-library/jest-dom';
-import App from './Components/App';
+import App from './components/App';
 import { server } from './mocks/server';
 
 describe('test authentication', () => {
