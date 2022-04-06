@@ -1,6 +1,6 @@
 import { Col, Badge, Form } from "react-bootstrap";
 
-const FilteringCriteria = ({ criteria, changeCriteria }) => {
+const FilteringCriteria = ({ userData, criteria, changeCriteria }) => {
   const handleChange = (fieldType) => (e) => {
     changeCriteria(fieldType, e.target.value);
   };
@@ -11,13 +11,13 @@ const FilteringCriteria = ({ criteria, changeCriteria }) => {
         <h4>
           <Badge bg="dark">Username</Badge>
         </h4>
-        <h4>olegdemchenko</h4>
+        <h4>{userData.username}</h4>
       </Col>
       <Col className="col-12 mb-4" md="6">
         <h4>
           <Badge bg="dark">Repository</Badge>
         </h4>
-        <h4>frontend-project-lvl3</h4>
+        <h4>{userData.repository}</h4>
       </Col>
       <Form.Group className="col-12 col-md-6 mb-5">
         <Form.Label htmlFor="labelFilter">

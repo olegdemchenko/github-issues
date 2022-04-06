@@ -14,7 +14,7 @@ const errors = {
   invalidCredentials: "Username or repository is incorrect",
 };
 
-const SignIn = ({ signIn, setIssues }) => {
+const SignIn = ({ signIn, setIssues, setUserData }) => {
   const [isFetching, setFetching] = useState(false);
   const usernameRef = useRef();
   useEffect(() => {
@@ -51,6 +51,7 @@ const SignIn = ({ signIn, setIssues }) => {
         );
         setFetching(false);
         signIn();
+        setUserData({ username, repository });
         setIssues(data);
       } catch (e) {
         setFetching(false);

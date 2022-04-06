@@ -10,7 +10,7 @@ import {
   sortIssues,
 } from "../utils";
 
-const Issues = ({ issues }) => {
+const Issues = ({ issues, userData }) => {
   const initialRenderInfo = { render: "list" };
   const [renderInfo, setRenderInfo] = useState(initialRenderInfo);
 
@@ -46,6 +46,7 @@ const Issues = ({ issues }) => {
   return (
     <IssuesWrapper>
       <FilteringCriteria
+        userData={userData}
         criteria={currentCriteria}
         changeCriteria={changeCriteria}
       />

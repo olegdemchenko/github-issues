@@ -11,14 +11,15 @@ function App() {
   const signOut = () => setSignedIn(false);
 
   const [issues, setIssues] = useState([]);
+  const [userData, setUserData] = useState({});
 
   return (
     <AppContainer>
       <Header isSignedIn={isSignedIn} signOut={signOut} />
       {isSignedIn ? (
-        <Issues issues={issues} />
+        <Issues issues={issues} userData={userData}/>
       ) : (
-        <SignIn signIn={signIn} setIssues={setIssues} />
+        <SignIn signIn={signIn} setIssues={setIssues} setUserData={setUserData}/>
       )}
     </AppContainer>
   );
